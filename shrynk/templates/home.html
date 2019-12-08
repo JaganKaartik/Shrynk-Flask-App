@@ -8,22 +8,23 @@
     <div class="container">
         <nav>
             <div class="nav-wrapper">
-                <a class="brand-logo center cyan darken-2 white-text " style="font-family: 'Oxygen', sans-serif;">Hello {{ current_user.username }} </a>
+                <a class="brand-logo center white-text " style="font-family: 'Oxygen', sans-serif;">Hello {{ current_user.username }} </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="">Add URL</a></li>
-                <li><a href="">Dashboard</a></li>
+                <!-- <li  onclick="toggleURL()">Add URL</li> -->
+                <li><a onclick="toggleURL()">Add URL</a></li>
+                <li><a>Dashboard</a></li>
                 </ul>
             </div>
         </nav>
         <br>
-       <!-- <div class="card hoverable">
+       <div id="addurlform" style="display:none;" class="card hoverable">
             <form action="">
                 Enter URL to shorten : <br>
                 <input type="text" name="firstname">
                 <br>
                 <input type="submit" value="Submit">
               </form> 
-       </div> -->
+       </div>
     </div>
 </div>
 {% else %}

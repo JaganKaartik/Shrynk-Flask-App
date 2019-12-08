@@ -12,13 +12,9 @@ from shrynk.models import User
 def home():
     return render_template('home.html')
 
-# @app.route("/home")
-# def home():
-#     if current_user.is_authenticated:
-#         return redirect(url_for('home'))
-#     form = LoginForm()
-#     return render_template('home.html',form=form)
-
+@app.route("/dashboard")
+def dashboard():
+    return render_template('dashboard.html')
 
 @app.route("/login", methods=['GET','POST'])
 def loginUser():
