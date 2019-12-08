@@ -4,13 +4,21 @@ from shrynk.forms import RegistrationForm, LoginForm
 from flask_login import login_user, current_user, logout_user, login_required
 from shrynk.models import User
 
+"""
+    First page that loads when application is started.
+"""
 @app.route("/")
-def mainPage():
-    return render_template('layout.html')
-
 @app.route("/home")
 def home():
     return render_template('home.html')
+
+# @app.route("/home")
+# def home():
+#     if current_user.is_authenticated:
+#         return redirect(url_for('home'))
+#     form = LoginForm()
+#     return render_template('home.html',form=form)
+
 
 @app.route("/login", methods=['GET','POST'])
 def loginUser():
@@ -45,4 +53,4 @@ def registerUser():
 @app.route("/logout")
 def logout():
     logout_user()
-    return redirect(url_for('mainPage'))
+    return redirect(url_for('home'))

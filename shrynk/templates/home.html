@@ -1,5 +1,30 @@
+<!-- This is the home page -->
+<!-- User can view/shorten URLs -->
+
 {% extends "layout.html" %}
 {% block content %}
-<h1>{{current_user.username}} your logged in!</h1>
-<h1><a href="{{ url_for('logout') }}">Logout</a></h1>
+{% if current_user.is_authenticated %}
+<div class="wrapper">
+    <h1>HAI YOU ARE LOGGED IN</h1>
+</div>
+{% else %}
+<div class="wrapper">
+    <div class="container">
+        <div class="card hoverable">
+                <div class="card-stacked  cyan lighten-3">
+                    <div class="card-content hoverable">
+                        <p>What is Shrynk?</p>
+                    </div>
+                </div>
+                <div class="card-stacked  cyan darken-1">
+                    <div class="card-content hoverable">
+                        <p class="pCentext">Shrynk is a simple URL Shortner!</p>
+                    </div>
+                 </div>
+         </div>           
+    </div>
+</div>
+
+       
+{% endif %}
 {% endblock %}

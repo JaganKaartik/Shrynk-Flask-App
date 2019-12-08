@@ -5,11 +5,30 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/layout.css') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/menu.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Oxygen&display=swap" rel="stylesheet">
         <style>
-        body{background-image:url('static/images/bg.jpg');background-attachment: fixed;background-size:100%;}
+        body{background-image:url('static/images/bgnew.jpg');background-attachment: fixed;background-size:100%;}
         </style>
     </head>
     <body>
+    <nav id="nav" class="navbar navbar-expand-md navbar-dark bg-steel fixed-top  cyan darken-2">
+            <div class="container">
+              <h4 class="text">Shrynk</h4>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav ">
+                  {% if current_user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                  {% else %}
+                    <a class="nav-item nav-link" href="{{ url_for('loginUser') }}">Login</a>
+                    <a class="nav-item nav-link" href="{{ url_for('registerUser') }}">Register</a>
+                  {% endif %}
+              </div>
+            </div>
+    </nav>
     {% block content %}
     {% endblock %}
     </body>

@@ -5,3 +5,17 @@
     grid-gap: 1em;
     grid-template-rows: auto;
  }
+ .text{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50px;
+ }
+ .wrapper{
+     margin-top:5%;
+ }
+ p{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 35px;
+ }
+ .pCentext{
+    text-align: center;
+ }

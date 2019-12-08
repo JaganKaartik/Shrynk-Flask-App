@@ -18,3 +18,7 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(username=username.data).first()
         if user:
             raise ValidationError('That username is taken. Please choose a different one.')
+
+class URLForm(FlaskForm):
+    longURL = StringField('longurl',validators=[DataRequired()])
+    
