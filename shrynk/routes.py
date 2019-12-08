@@ -1,6 +1,6 @@
 from shrynk import app, db, bcrypt
 from flask import render_template, flash, redirect, url_for
-from shrynk.forms import RegistrationForm, LoginForm
+from shrynk.forms import RegistrationForm, LoginForm, URLForm
 from flask_login import login_user, current_user, logout_user, login_required
 from shrynk.models import User
 

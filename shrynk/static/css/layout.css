@@ -1,3 +1,4 @@
+body{background-image:url('static/images/bgnew.jpg');background-attachment: fixed;background-size:100%;}
 .twocontainer{
     margin:25px 50px 50px 100px;
     display: grid;
@@ -18,4 +19,7 @@
  }
  .pCentext{
     text-align: center;
+ }
+ .nav-wrapper {
+   background-color:#00acc1;
  }
