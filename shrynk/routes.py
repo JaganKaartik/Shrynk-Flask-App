@@ -2,20 +2,33 @@ from shrynk import app, db, bcrypt
 from flask import render_template, flash, redirect, url_for
 from shrynk.forms import RegistrationForm, LoginForm, URLForm
 from flask_login import login_user, current_user, logout_user, login_required
-from shrynk.models import User
+from shrynk.models import User, Dashboard
+from datetime import datetime,timedelta
+from shrynk.services.urlshorten import urlshorten,urldecode
+
+"""
+    Sys for Testing purposes
+"""
+import sys
 
 """
     First page that loads when application is started.
 """
+
 @app.route("/")
 @app.route("/home",methods=['GET','POST'])
 def home():
+    print("Logging message on home", flush=True)
     form = URLForm()
-    if form.validate_on_submit():
-        # Add Logic to update database schema
-        mymap = StorageMap(user)
-    else:
-        flash('Error!','danger')
+    # if form.validate_on_submit():
+    genURL = urlshorten(form.longURL.data)
+    print(form.longURL.data, flush=True)
+    expiry = datetime.now() + timedelta(days=30) 
+    mymap = Dashboard(user_id =  form.userid.data,longURL = form.longURL.data,shortURL=genURL,expiry = expiry)
+    db.session.add(mymap)
+    db.session.commit()
+    # else:
+    #     flash('Error!','danger')
     return render_template('home.html',form=form)
 
 @app.route("/dashboard")
