@@ -8,9 +8,15 @@ from shrynk.models import User
     First page that loads when application is started.
 """
 @app.route("/")
-@app.route("/home")
+@app.route("/home",methods=['GET','POST'])
 def home():
-    return render_template('home.html')
+    form = URLForm()
+    if form.validate_on_submit():
+        # Add Logic to update database schema
+        mymap = StorageMap(user)
+    else:
+        flash('Error!','danger')
+    return render_template('home.html',form=form)
 
 @app.route("/dashboard")
 def dashboard():

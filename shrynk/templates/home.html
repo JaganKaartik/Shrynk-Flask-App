@@ -1,5 +1,4 @@
 <!-- This is the home page -->
-<!-- User can view/shorten URLs -->
 
 {% extends "layout.html" %}
 {% block content %}
@@ -16,14 +15,21 @@
                 </ul>
             </div>
         </nav>
-        <br>
-       <div id="addurlform" style="display:none;" class="card hoverable">
-            <form action="">
-                Enter URL to shorten : <br>
-                <input type="text" name="firstname">
-                <br>
-                <input type="submit" value="Submit">
-              </form> 
+
+
+       <div id="addurlform" style="display:none;" class="card hoverable form-group">
+            <form action="" method="post" novalidate>
+                <p>
+                    {{ form.longURL.label }}<br>
+                    {{ form.longURL }}
+                </p>
+                <p style="display:none;" >{{ form.userid(value=current_user.id) }}</p>
+                <a>{{ form.submit() }}</a>
+            </form>
+        </div>
+
+       <div id="dashboard" style="display:none;" class="card hoverable">
+           
        </div>
     </div>
 </div>

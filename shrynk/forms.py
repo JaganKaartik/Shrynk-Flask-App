@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, IntegerField
 from wtforms.validators import DataRequired, Length, EqualTo, ValidationError
 from shrynk.models import User 
 
@@ -21,4 +21,6 @@ class RegistrationForm(FlaskForm):
 
 class URLForm(FlaskForm):
     longURL = StringField('longurl',validators=[DataRequired()])
+    userid = IntegerField('userid')
+    submit = SubmitField('Add URL')
     
