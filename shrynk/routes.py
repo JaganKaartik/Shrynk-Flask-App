@@ -37,6 +37,11 @@ def home():
         result =  Dashboard.query.filter_by(user_id=current_user.id).all()
     return render_template('home.html',form=form,data=result)
 
+@app.route('/<shorturl>')
+def linker(shorturl):
+    shorturl = "http://127.0.0.1:5000/" + shorturl
+    url =  Dashboard.query.filter_by(shortURL=shorturl).first()
+    return redirect(url.longURL,code=302)
 
 @app.route("/login", methods=['GET','POST'])
 def loginUser():
