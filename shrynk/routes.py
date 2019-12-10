@@ -4,6 +4,7 @@ from shrynk.forms import RegistrationForm, LoginForm, URLForm
 from flask_login import login_user, current_user, logout_user, login_required
 from shrynk.models import User, Dashboard
 from datetime import datetime,timedelta
+from flask_admin.contrib.sqla import ModelView
 from shrynk.services.urlshorten import urlshorten
 
 """
@@ -77,3 +78,14 @@ def registerUser():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+
+class MyModelView(ModelView):
+    def is_accessible(self):
+        if User.query.filter(current_user.username == 'Admin').first():
+            return True
+        else:
+            return False
+
+            def inaccessible_callback(self,name,**kwargs):
+                return redirect(url_for('login'))
