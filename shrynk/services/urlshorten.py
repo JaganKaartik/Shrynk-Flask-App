@@ -1,12 +1,6 @@
-import zlib, base64
+import zlib, base64, hashlib
 
 def urlshorten(text):
-    text = text.encode('ascii')
-    text = base64.b64encode(zlib.compress(text,7)).decode('ascii')
-    return text
-
-def urldecode(text):
-    text = text.encode('ascii')
-    text = zlib.decompress(base64.b64decode(text)).decode('ascii')
-    return text
-
+    text = text.encode("utf-8")
+    text = base64.urlsafe_b64encode(hashlib.md5(text).digest())[:8]
+    return text.decode()

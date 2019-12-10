@@ -10,28 +10,58 @@
                 <a class="brand-logo center white-text " style="font-family: 'Oxygen', sans-serif;">Hello {{ current_user.username }} </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <!-- <li  onclick="toggleURL()">Add URL</li> -->
-                <li><a onclick="toggleURL()">Add URL</a></li>
-                <li><a>Dashboard</a></li>
+                <li><a onclick="toggleURL('url')">Add URL</a></li>
+                <li><a onclick="toggleURL('dash')">Dashboard</a></li>
                 </ul>
             </div>
         </nav>
 
-
        <div id="addurlform" style="display:none;" class="card hoverable form-group">
             <form action="" method="post" novalidate>
+                    {{ form.hidden_tag() }}
                 <p>
                     {{ form.longURL.label }}<br>
                     {{ form.longURL }}
                 </p>
                 <p style="display:none;" >{{ form.userid(value=current_user.id) }}</p>
-                <a>{{ form.submit() }}</a>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
             </form>
         </div>
-
-       <div id="dashboard" style="display:none;" class="card hoverable">
-           
-       </div>
     </div>
+       <div id="dash" style="display:none;" class="card hoverable form-group">  
+        <table>
+            <thead>
+            <tr>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Long URL</th>
+                <th>Short URL</th>
+                <th>Activation</th>
+                <th>Expiry</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Alvin</td>
+                <td>Eclair</td>
+                <td>$0.87</td>
+            </tr>
+            <tr>
+                <td>Alan</td>
+                <td>Jellybean</td>
+                <td>$3.76</td>
+            </tr>
+            <tr>
+                <td>Jonathan</td>
+                <td>Lollipop</td>
+                <td>$7.00</td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+
 </div>
 {% else %}
 <div class="wrapper">

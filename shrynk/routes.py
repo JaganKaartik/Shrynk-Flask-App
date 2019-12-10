@@ -4,7 +4,7 @@ from shrynk.forms import RegistrationForm, LoginForm, URLForm
 from flask_login import login_user, current_user, logout_user, login_required
 from shrynk.models import User, Dashboard
 from datetime import datetime,timedelta
-from shrynk.services.urlshorten import urlshorten,urldecode
+from shrynk.services.urlshorten import urlshorten
 
 """
     Sys for Testing purposes
@@ -18,22 +18,23 @@ import sys
 @app.route("/")
 @app.route("/home",methods=['GET','POST'])
 def home():
+
     print("Logging message on home", flush=True)
     form = URLForm()
     # if form.validate_on_submit():
-    genURL = urlshorten(form.longURL.data)
-    print(form.longURL.data, flush=True)
-    expiry = datetime.now() + timedelta(days=30) 
-    mymap = Dashboard(user_id =  form.userid.data,longURL = form.longURL.data,shortURL=genURL,expiry = expiry)
-    db.session.add(mymap)
-    db.session.commit()
-    # else:
-    #     flash('Error!','danger')
+    if form.validate_on_submit():
+        print("Logging message on submit", flush=True)
+        genURL = urlshorten(form.longURL.data)
+        print(form.longURL.data, flush=True)
+        print(genURL,flush=True)
+        expiry = datetime.now() + timedelta(days=30) 
+        mymap = Dashboard(user_id =  form.userid.data,longURL = form.longURL.data,shortURL=genURL,expiry = expiry)
+        db.session.add(mymap)
+        db.session.commit()
+    else:
+        flash(f'Error!','danger')
     return render_template('home.html',form=form)
 
-@app.route("/dashboard")
-def dashboard():
-    return render_template('dashboard.html')
 
 @app.route("/login", methods=['GET','POST'])
 def loginUser():
