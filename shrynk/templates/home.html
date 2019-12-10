@@ -29,39 +29,32 @@
                 </div>
             </form>
         </div>
-    </div>
        <div id="dash" style="display:none;" class="card hoverable form-group">  
         <table>
             <thead>
             <tr>
                 <th>User ID</th>
-                <th>User Name</th>
                 <th>Long URL</th>
                 <th>Short URL</th>
                 <th>Activation</th>
                 <th>Expiry</th>
             </tr>
             </thead>
+            {% for i in data%}
             <tbody>
             <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-            </tr>
-            <tr>
-                <td>Alan</td>
-                <td>Jellybean</td>
-                <td>$3.76</td>
-            </tr>
-            <tr>
-                <td>Jonathan</td>
-                <td>Lollipop</td>
-                <td>$7.00</td>
+                <td>{{i.user_id}}</td>
+                <td>{{i.longURL}}</td>
+                <td>{{i.shortURL}}</td>
+                <td>{{i.activated}}</td>
+                <td>{{i.expiry}}</td>
             </tr>
             </tbody>
+            {% endfor %}
+
         </table>
         </div>
-
+    </div>
 </div>
 {% else %}
 <div class="wrapper">

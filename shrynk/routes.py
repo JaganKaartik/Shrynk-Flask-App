@@ -25,15 +25,17 @@ def home():
     if form.validate_on_submit():
         print("Logging message on submit", flush=True)
         genURL = urlshorten(form.longURL.data)
-        print(form.longURL.data, flush=True)
-        print(genURL,flush=True)
+        genURL = "http://127.0.0.1:5000/"+genURL
         expiry = datetime.now() + timedelta(days=30) 
         mymap = Dashboard(user_id =  form.userid.data,longURL = form.longURL.data,shortURL=genURL,expiry = expiry)
         db.session.add(mymap)
         db.session.commit()
     else:
         flash(f'Error!','danger')
-    return render_template('home.html',form=form)
+    result = []
+    if current_user.is_authenticated:
+        result =  Dashboard.query.filter_by(user_id=current_user.id).all()
+    return render_template('home.html',form=form,data=result)
 
 
 @app.route("/login", methods=['GET','POST'])
