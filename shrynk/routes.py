@@ -6,7 +6,7 @@ from shrynk.models import User, Dashboard
 from datetime import datetime,timedelta
 from flask_admin.contrib.sqla import ModelView
 from shrynk.services.urlshorten import urlshorten
-
+from shrynk.services.randomString import generateRandomString
 """
     Sys for Testing purposes
 """
@@ -26,6 +26,15 @@ def home():
     if form.validate_on_submit():
         print("Logging message on submit", flush=True)
         genURL = urlshorten(form.longURL.data)
+        # Implementing Check for Re-dundant URLs
+        genURL = "http://127.0.0.1:5000/"+genURL
+        urls =  Dashboard.query.all()
+        for i in urls:
+            if i.shortURL==genURL:
+                print("Re-dundant URL",flush = True)
+                res = generateRandomString()
+                genURL = urlshorten(form.longURL.data+res)
+        # End of Check for Re-dundant URLs
         genURL = "http://127.0.0.1:5000/"+genURL
         expiry = datetime.now() + timedelta(days=30) 
         mymap = Dashboard(user_id =  form.userid.data,longURL = form.longURL.data,shortURL=genURL,expiry = expiry)
