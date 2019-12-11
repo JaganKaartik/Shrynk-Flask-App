@@ -27,14 +27,20 @@ def home():
         print("Logging message on submit", flush=True)
         genURL = urlshorten(form.longURL.data)
         # Implementing Check for Re-dundant URLs
-        genURL = "http://127.0.0.1:5000/"+genURL
+        # Testing
+        # genURL = "http://127.0.0.1:5000/"+genURL
+        # Deployment
+        genURL = "http://shrynk.herokuapp.com"+genURL
         urls =  Dashboard.query.all()
         for i in urls:
             if i.shortURL==genURL:
                 print("Re-dundant URL",flush = True)
                 res = generateRandomString()
                 genURL = urlshorten(form.longURL.data+res)
-                genURL = "http://127.0.0.1:5000/"+genURL
+                # Testing
+                # genURL = "http://127.0.0.1:5000/"+genURL
+                # Deployment
+                genURL = "http://shrynk.herokuapp.com"+genURL
         # End of Check for Re-dundant URLs
         expiry = datetime.now() + timedelta(days=30) 
         mymap = Dashboard(user_id =  form.userid.data,longURL = form.longURL.data,shortURL=genURL,expiry = expiry)
