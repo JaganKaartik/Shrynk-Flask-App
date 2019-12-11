@@ -30,7 +30,7 @@ def home():
         # Testing
         # genURL = "http://127.0.0.1:5000/"+genURL
         # Deployment
-        genURL = "http://shrynk.herokuapp.com"+genURL
+        genURL = "http://shrynk.herokuapp.com/"+genURL
         urls =  Dashboard.query.all()
         for i in urls:
             if i.shortURL==genURL:
@@ -40,7 +40,7 @@ def home():
                 # Testing
                 # genURL = "http://127.0.0.1:5000/"+genURL
                 # Deployment
-                genURL = "http://shrynk.herokuapp.com"+genURL
+                genURL = "http://shrynk.herokuapp.com/"+genURL
         # End of Check for Re-dundant URLs
         expiry = datetime.now() + timedelta(days=30) 
         mymap = Dashboard(user_id =  form.userid.data,longURL = form.longURL.data,shortURL=genURL,expiry = expiry)
