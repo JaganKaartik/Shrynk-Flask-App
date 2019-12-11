@@ -55,7 +55,10 @@ def home():
 
 @app.route('/<shorturl>')
 def linker(shorturl):
-    shorturl = "http://127.0.0.1:5000/" + shorturl
+    # Testing
+    # shorturl = "http://127.0.0.1:5000/" + shorturl
+    # Deployment
+    shorturl = "http://shrynk.herokuapp.com/" + shorturl
     url =  Dashboard.query.filter_by(shortURL=shorturl).first()
     return redirect(url.longURL,code=302)
 
