@@ -19,7 +19,7 @@ import sys
 @app.route("/")
 @app.route("/home",methods=['GET','POST'])
 def home():
-
+    flash('Login Successful', 'success')
     print("Logging message on home", flush=True)
     form = URLForm()
     # if form.validate_on_submit():

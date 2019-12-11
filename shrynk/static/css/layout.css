@@ -22,3 +22,9 @@
  .nav-wrapper {
    background-color:#00acc1;
  }
+ .alert.success {
+   background-color: green;
+ }
+ .alert.error {
+   background-color: red;
+ }
