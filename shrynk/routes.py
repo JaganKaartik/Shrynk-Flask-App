@@ -34,8 +34,8 @@ def home():
                 print("Re-dundant URL",flush = True)
                 res = generateRandomString()
                 genURL = urlshorten(form.longURL.data+res)
+                genURL = "http://127.0.0.1:5000/"+genURL
         # End of Check for Re-dundant URLs
-        genURL = "http://127.0.0.1:5000/"+genURL
         expiry = datetime.now() + timedelta(days=30) 
         mymap = Dashboard(user_id =  form.userid.data,longURL = form.longURL.data,shortURL=genURL,expiry = expiry)
         db.session.add(mymap)
