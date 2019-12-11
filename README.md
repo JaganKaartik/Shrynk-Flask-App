@@ -40,3 +40,17 @@ Shrink - A simple implementation of a URL shortener similar to bit.ly, tiny.url,
 6. Click ```Dashboard``` to view all shortened urls and other info*.
 
 *Other Info: Activation, Expiry, Longurl
+
+## Screenshots
+
+#### Intro Page
+
+![intro](https://github.com/JaganKaartik/Shrynk/blob/master/images/intro.png)
+
+#### Add URL
+
+![addurl](https://github.com/JaganKaartik/Shrynk/blob/master/images/addurl.png)
+
+#### Dashboard
+
+![dash](https://github.com/JaganKaartik/Shrynk/blob/master/images/dashboard.png)
