@@ -46,8 +46,8 @@ def home():
         mymap = Dashboard(user_id =  form.userid.data,longURL = form.longURL.data,shortURL=genURL,expiry = expiry)
         db.session.add(mymap)
         db.session.commit()
-    else:
-        flash(f'Error!','danger')
+    # else:
+    #     flash(f'Error!','danger')
     result = []
     if current_user.is_authenticated:
         result =  Dashboard.query.filter_by(user_id=current_user.id).all()
@@ -72,8 +72,8 @@ def loginUser():
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
             return redirect(url_for('home'))
-        else:
-            flash('Login Unsuccessful. Please check username and password', 'danger')
+        # else:
+        #     flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='Login', form = form)
 
 
