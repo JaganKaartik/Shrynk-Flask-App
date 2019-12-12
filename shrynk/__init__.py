@@ -7,7 +7,7 @@ from flask_admin import Admin
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'N2QRzZW7OS'
-app.config['DATABASE_URL'] = 'postgres://etxpofekipqloy:736260567557fc1973cff43667da107d83a69415651a441ae79d00158bd1e8fe@ec2-174-129-255-11.compute-1.amazonaws.com:5432/d74uieftmai00v'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://etxpofekipqloy:736260567557fc1973cff43667da107d83a69415651a441ae79d00158bd1e8fe@ec2-174-129-255-11.compute-1.amazonaws.com:5432/d74uieftmai00v'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
