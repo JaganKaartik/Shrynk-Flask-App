@@ -41,6 +41,8 @@ Shrink - A simple implementation of a URL shortener similar to bit.ly, tiny.url,
 
 *Other Info: Activation, Expiry, Longurl
 
+**Note: Message me for Admin credentials.**
+
 ## Screenshots
 
 #### Intro Page
