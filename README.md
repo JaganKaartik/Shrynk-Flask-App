@@ -1,6 +1,6 @@
 # Shrynk
 
-Shrink - A simple implementation of a URL shortener similar to bit.ly, tiny.url, etc. Users can create and manage multiple URLs. The application provides a short url, which can be used to access the desired website.
+Shrink - A simple implementation of a URL shortener similar to bit.ly, tiny.url, etc. Users can create and manage multiple URLs. The application provides a short url, which can be used to access the desired website. 
 
 ## Features of Shrynk
 
@@ -39,9 +39,6 @@ Shrink - A simple implementation of a URL shortener similar to bit.ly, tiny.url,
 5. Click ```AddURL``` to shorten url. 
 6. Click ```Dashboard``` to view all shortened urls and other info*.
 
-*Other Info: Activation, Expiry, Longurl
-
-**Note: Message me for Admin credentials.**
 
 ## Screenshots
 
@@ -56,3 +53,6 @@ Shrink - A simple implementation of a URL shortener similar to bit.ly, tiny.url,
 #### Dashboard
 
 ![dash](https://github.com/JaganKaartik/Shrynk/blob/master/images/dashboard.png)
+
+
+**Note: This is a rudimentary implementation of a url shrinking API. This wasn't made thinking about sys-design concepts.**
