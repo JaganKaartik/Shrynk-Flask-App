@@ -55,4 +55,4 @@ Shrink - A simple implementation of a URL shortener similar to bit.ly, tiny.url,
 ![dash](https://github.com/JaganKaartik/Shrynk/blob/master/images/dashboard.png)
 
 
-**Note: This is a rudimentary implementation of a url shrinking API. This wasn't made thinking about sys-design concepts.**
+**Note: This is a rudimentary implementation of a url shrinking API. No sys-design concepts/factors were considered while making.**
