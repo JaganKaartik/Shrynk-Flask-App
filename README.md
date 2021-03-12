@@ -46,9 +46,9 @@ Shrink - A simple implementation of a URL shortener similar to bit.ly, tiny.url,
 
 ![intro](https://github.com/JaganKaartik/Shrynk/blob/master/images/intro.png)
 
-#### Add URL
+#### Login
 
-![addurl](https://github.com/JaganKaartik/Shrynk/blob/master/images/addurl.png)
+![login](https://github.com/JaganKaartik/Shrynk/blob/master/images/login.png)
 
 #### Dashboard
 
