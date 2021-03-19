@@ -3,10 +3,9 @@
 </h1>
 
 <div align="center">
-  <sub>Built with ❤︎ by Jagan Kaartik</sub>
+  <sub> Built with ❤︎ </sub>
 </div>
-
-
+</br>
 Shrynk - A simple implementation of a URL shortener similar to bit.ly, tiny.url, etc. Users can create and manage multiple URLs. The application provides a short url, which can be used to access the desired website. 
 
 ## Features of Shrynk
