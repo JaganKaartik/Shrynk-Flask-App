@@ -1,0 +1,8 @@
+venv
+.git
+.gitignore
+LICENSE
+Procfile
+README.md
+.vscode
+images
