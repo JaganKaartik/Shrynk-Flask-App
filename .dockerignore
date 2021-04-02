@@ -6,3 +6,4 @@ Procfile
 README.md
 .vscode
 images
+.prettierignore
